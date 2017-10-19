@@ -582,7 +582,7 @@ void WindowImplMsw::enableMultiTouch()
 	BOOL (WINAPI *RegisterTouchWindow)( HWND, ULONG);
 	*(size_t *)&RegisterTouchWindow = (size_t)::GetProcAddress( ::GetModuleHandle(TEXT("user32.dll")), "RegisterTouchWindow" );
 	if( RegisterTouchWindow ) {
-		(*RegisterTouchWindow)( mWnd, 0 );
+		(*RegisterTouchWindow)( mWnd, TWF_WANTPALM );
 	}
 }
 
